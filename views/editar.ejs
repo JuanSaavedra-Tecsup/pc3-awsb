@@ -1,0 +1,36 @@
+<%- include ('partials/header') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 offset-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editar/<%= contactos._id %>" method="POST">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" name="nombre"  placeholder="Escribir Nombre" class="form-control" value="<%= contactos.nombre %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            <input type="text" name="apellido" placeholder="Escribir Apellido" class="form-control" value="<%= contactos.apellido %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Correo</label>
+                            <input type="text" name="email" placeholder="Escribir Email" class="form-control" value="<%= contactos.email %>">
+                        </div>
+                        <div class="form-group">
+                            <label>Nacimiento</label>
+                            <input type="date" name="fecha_nacimiento" placeholder="Escoger fecha de nacimiento" class="form-control" value="<%= contactos.fecha_nacimiento %>">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Actualizar Contacto
+                        </button>
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('partials/footer') %>

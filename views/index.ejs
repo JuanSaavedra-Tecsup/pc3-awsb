@@ -1,0 +1,67 @@
+
+<%- include ('partials/header') %>
+
+    <div class="container" >
+        <div class="row" >
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/agregar" method="POST">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" name="nombre" value placeholder="Escribir Nombre" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Apellido</label>
+                                <input type="text" name="apellido" value placeholder="Escribir Apellido" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Correo</label>
+                                <input type="text" name="email" value placeholder="Escribir Email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Nacimiento</label>
+                                <input type="date" name="fecha_nacimiento" value placeholder="Escoger fecha de nacimiento" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block">
+                                Añadir Contacto
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-11">
+                <table class="table table-border table-hover">
+                <thead>
+                    <try>
+                        <th>Numero</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo Electronico</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Acciones</th>
+                    </try>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < contactos.length; i++) { %>
+                        <tr>
+                            <td><%= i + 1 %></td>
+                            <td><%= contactos[i].nombre %></td>
+                            <td><%= contactos[i].apellido %></td>
+                            <td><%= contactos[i].email %></td>
+                            <td><%= contactos[i].fecha_nacimiento %></td>
+                            <td>
+                                <a href="/editar/<%= contactos[i]._id %>" class="btn btn-primary">Editar</a>
+                                <a href="/borrar/<%= contactos[i]._id %>" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+<%- include ('partials/footer') %>
